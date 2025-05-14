@@ -5,7 +5,5 @@ const server = new App().server;
 
 dbConection.authenticate()
 .then(() => { 
-    console.log("DB connected")
-    server.listen(3000, () => console.log(`Listening on http://localhost:${3000}`))
+    server.listen(3000, () => console.log(`DB connected and Listening on http://localhost:${3000}`))
 }).catch(error => console.log(`DB conection failed: ${error}`));
-
