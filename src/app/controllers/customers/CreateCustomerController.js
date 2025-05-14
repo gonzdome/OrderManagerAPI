@@ -1,5 +1,5 @@
 const ResponseHelper = require("../../helpers/ResponseHelper");
-const CreateCustomerService = require("../../services/CreateCustomerService");
+const CreateCustomerService = require("../../services/customers/CreateCustomerService");
 const CreateCustomerValidator = require("../../validators/customers/CreateCustomerValidator");
 
 module.exports = async (request, response) => {
