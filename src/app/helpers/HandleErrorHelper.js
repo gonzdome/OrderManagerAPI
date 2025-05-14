@@ -1,0 +1,1 @@
+module.exports = (errorType, message, status) => ({ errorType, message, status: status });
