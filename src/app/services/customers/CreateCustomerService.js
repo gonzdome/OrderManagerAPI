@@ -1,5 +1,5 @@
-const HandleErrorHelper = require('../helpers/HandleErrorHelper');
-const CustomerRepository = require('../repositories/CustomerRepository')
+const HandleErrorHelper = require('../../helpers/HandleErrorHelper');
+const CustomerRepository = require('../../repositories/CustomerRepository')
 
 module.exports = async (request) => {
     const { name, email, phone } = request.body;
