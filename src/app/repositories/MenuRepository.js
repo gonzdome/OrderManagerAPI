@@ -5,6 +5,11 @@ const createMenu = async ({ name, description, price, category }) => {
     return { name, description, price, category };
 }
 
+const getMenusByIds = async ({ ids }) => {
+    var findMenusByIds = await Menus.findAll({ where: { id: ids } });
+    return findMenusByIds;
+}
+
 const getMenuList = async ({ page = 0, limit = 10, category = null }) => {
     let search = { offset: page, limit: limit, };
     if (category != null) search.where = { category };
@@ -28,4 +33,4 @@ const getMenuList = async ({ page = 0, limit = 10, category = null }) => {
     };
 }
 
-module.exports = { createMenu, getMenuList };
+module.exports = { createMenu, getMenusByIds, getMenuList };
