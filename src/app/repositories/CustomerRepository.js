@@ -6,7 +6,7 @@ const createCustomer = async ({name, email, phone}) => {
 }
 
 const getCustomerByEmail = async ({ email }) => {
-    var findCustomerByEmail = await Customers.findOne({ email }) ?? null;
+    var findCustomerByEmail = await Customers.findOne({ where: { email } }) ?? null;
     return findCustomerByEmail;
 }
 
