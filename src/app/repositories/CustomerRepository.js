@@ -10,4 +10,9 @@ const getCustomerByEmail = async ({ email }) => {
     return findCustomerByEmail;
 }
 
-module.exports = { createCustomer, getCustomerByEmail };
+const getCustomerById = async ({ id }) => {
+    var findCustomerById = await Customers.findOne({ where: { id } }) ?? null;
+    return findCustomerById;
+}
+
+module.exports = { createCustomer, getCustomerByEmail, getCustomerById };
