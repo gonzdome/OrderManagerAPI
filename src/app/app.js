@@ -1,6 +1,7 @@
 const express = require('express');
 
 const CustomerRouter = require('./routes/CustomerRouter');
+const MenuRouter = require('./routes/MenuRouter');
 
 class App {
   constructor() {
@@ -10,7 +11,8 @@ class App {
   }
 
   routes() {
-    this.server.use('/customer', CustomerRouter);
+    this.server.use('/', CustomerRouter);
+    this.server.use('/', MenuRouter);
   }
 
   middleware() {
