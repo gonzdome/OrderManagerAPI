@@ -1,1 +1,1 @@
-module.exports = (errorType, message, status) => ({ errorType, message, status: status });
+module.exports = (errorType, message, status, data = null) => ({ errorType, message, status: status, data });
