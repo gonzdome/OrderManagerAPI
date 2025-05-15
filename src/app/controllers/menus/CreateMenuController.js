@@ -6,8 +6,8 @@ module.exports = async (request, response) => {
     try {
         await CreateMenuValidator(request);
 
-        const customerCreated = await CreateMenuService(request);    
-        return await ResponseHelper({ response, message: 'Menu created successfully', data: customerCreated });
+        const serviceResponse = await CreateMenuService(request);    
+        return await ResponseHelper({ response, message: 'Menu created successfully', data: serviceResponse });
     } catch (exception) {
         return await ResponseHelper({ response, success: false, message: exception.message, ...exception });
     }
