@@ -1,0 +1,31 @@
+const { Menus } = require('../database/models');
+
+const createMenu = async ({ name, description, price, category }) => {
+    Menus.create({ name, description, price, category });
+    return { name, description, price, category };
+}
+
+const getMenuList = async ({ page = 0, limit = 10, category = null }) => {
+    let search = { offset: page, limit: limit, };
+    if (category != null) search.where = { category };
+
+    var findMenuByEmail = await Menus.findAndCountAll(search);
+
+    return {
+        count: findMenuByEmail.count,
+        page: page,
+        limit: limit,
+        rows: findMenuByEmail.rows.map(r => ({    
+            id: r.id,
+            name: r.name,
+            description: r.description,
+            price: r.price,
+            priceConverted: (r.price / 100),
+            category: r.category,
+            createdAt: r.createdAt,
+            updatedAt: r.updatedAt,
+        }))
+    };
+}
+
+module.exports = { createMenu, getMenuList };
