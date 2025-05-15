@@ -6,8 +6,8 @@ module.exports = async (request, response) => {
     try {
         await CreateCustomerValidator(request);
 
-        const customerCreated = await CreateCustomerService(request);    
-        return await ResponseHelper({ response, message: 'Customer created successfully', data: customerCreated });
+        const serviceResponse = await CreateCustomerService(request);    
+        return await ResponseHelper({ response, message: 'Customer created successfully', data: serviceResponse });
     } catch (exception) {
         return await ResponseHelper({ response, success: false, message: exception.message, ...exception });
     }
