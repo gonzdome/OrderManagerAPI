@@ -1,0 +1,1 @@
+module.exports = [ "starter", "main_course", "dessert", "drink" ];
