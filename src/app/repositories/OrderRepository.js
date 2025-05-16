@@ -8,7 +8,7 @@ const createOrder = async ({ customer_id }) => {
 }
 
 const getOrderById = async ({ id }) => {
-    const findOrderById = await Orders.findAll({ where: { id } });
+    const findOrderById = await Orders.findOne({ where: { id } });
     return findOrderById;
 }
 
