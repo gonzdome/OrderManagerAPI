@@ -1,0 +1,1 @@
+module.exports = [ "pending", "preparing", "ready", "delivered", "canceled" ];
