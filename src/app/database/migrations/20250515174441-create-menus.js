@@ -1,4 +1,5 @@
 'use strict';
+const MenuCategories = require('../../../utils/MenuCategories');
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
@@ -10,16 +11,20 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       name: {
-        type: Sequelize.STRING
+        allowNull: false,
+        type: Sequelize.STRING(100)
       },
       description: {
-        type: Sequelize.STRING
+        allowNull: false,
+        type: Sequelize.STRING(300)
       },
       price: {
+        allowNull: false,
         type: Sequelize.INTEGER
       },
       category: {
-        type: Sequelize.STRING
+        allowNull: false,
+        type: Sequelize.ENUM(MenuCategories)
       },
       createdAt: {
         allowNull: false,
