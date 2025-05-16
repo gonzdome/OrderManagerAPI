@@ -5,7 +5,6 @@ module.exports = async (request) => {
     
     if (parseInt(page) != 0) page -= 1;
     
-    const menu = await OrderRepository.getOrderList({ page: parseInt(page), limit: parseInt(limit), category });
-
-    return menu;
+    const orders = await OrderRepository.getOrderList({ page: parseInt(page), limit: parseInt(limit), category });
+    return orders;
 };
