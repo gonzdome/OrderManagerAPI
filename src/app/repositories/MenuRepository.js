@@ -1,4 +1,5 @@
 const { Menus } = require('../database/models');
+const { handlePage } = require('../helpers/PaginationHelper');
 
 const createMenu = async ({ name, description, price, category }) => {
     const menu = await Menus.create({ name, description, price, category });
@@ -10,7 +11,7 @@ const getMenusByIds = async ({ ids }) => {
     return findMenusByIds;
 }
 
-const getMenuList = async ({ page = 0, limit = 10, category = null }) => {
+const getMenuList = async ({ page, limit, category }) => {
     let search = { offset: page, limit: limit, };
     if (category != null) search.where = { category };
 
@@ -18,7 +19,7 @@ const getMenuList = async ({ page = 0, limit = 10, category = null }) => {
 
     return {
         count: findMenuByEmail.count,
-        page: page,
+        page: handlePage(page),
         limit: limit,
         rows: findMenuByEmail.rows.map(r => ({    
             id: r.id,

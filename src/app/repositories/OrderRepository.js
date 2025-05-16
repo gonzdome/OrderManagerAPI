@@ -1,5 +1,6 @@
 const { Orders } = require('../database/models');
-const OrderStatus = require('../../utils/OrderStatus')
+const OrderStatus = require('../../utils/OrderStatus');
+const { handlePage } = require('../helpers/PaginationHelper');
 
 const createOrder = async ({ customer_id }) => {
     const order = await Orders.create({ customer_id, status: "pending" });
@@ -11,7 +12,7 @@ const getOrderById = async ({ id }) => {
     return findOrderById;
 }
 
-const getOrderList = async ({ page = 0, limit = 10, category = null }) => {
+const getOrderList = async ({ page, limit, category = null }) => {
     let search = { offset: page, limit: limit, };
     if (category != null) search.where = { category };
 
@@ -19,7 +20,7 @@ const getOrderList = async ({ page = 0, limit = 10, category = null }) => {
 
     return {
         count: findOrderByEmail.count,
-        page: page,
+        page: handlePage(page),
         limit: limit,
         rows: findOrderByEmail.rows.map(r => ({    
             id: r.id,
