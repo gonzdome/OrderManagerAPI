@@ -1,12 +1,12 @@
 const { Menus } = require('../database/models');
 
 const createMenu = async ({ name, description, price, category }) => {
-    Menus.create({ name, description, price, category });
-    return { name, description, price, category };
+    const menu = await Menus.create({ name, description, price, category });
+    return { id: menu.id, name, description, price, category };
 }
 
 const getMenusByIds = async ({ ids }) => {
-    var findMenusByIds = await Menus.findAll({ where: { id: ids } });
+    const findMenusByIds = await Menus.findAll({ where: { id: ids } });
     return findMenusByIds;
 }
 
@@ -14,7 +14,7 @@ const getMenuList = async ({ page = 0, limit = 10, category = null }) => {
     let search = { offset: page, limit: limit, };
     if (category != null) search.where = { category };
 
-    var findMenuByEmail = await Menus.findAndCountAll(search);
+    const findMenuByEmail = await Menus.findAndCountAll(search);
 
     return {
         count: findMenuByEmail.count,
