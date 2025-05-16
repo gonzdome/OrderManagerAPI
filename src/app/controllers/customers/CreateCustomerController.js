@@ -11,6 +11,6 @@ module.exports = async (request, response) => {
 
         return await ResponseHelper({ response, message: created('Customer'), data: serviceResponse });
     } catch (exception) {
-        return await ResponseHelper({ response, success: false, status: exception.status ?? 500, message: exception.message });
+        return await ResponseHelper({ response, success: false, status: exception.status ?? 500, message: exception.message, errorType: exception.errorType ?? null });
     }
 };

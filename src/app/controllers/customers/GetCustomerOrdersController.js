@@ -9,6 +9,6 @@ module.exports = async (request, response) => {
         const serviceResponse = await GetCustomerOrdersService({ page: parseInt(page), limit: parseInt(limit), customer_id: parseInt(customer_id) });    
         return await ResponseHelper({ response, message: 'Customer Orders listed successfully', data: serviceResponse });
     } catch (exception) {
-        return await ResponseHelper({ response, success: false, status: exception.status ?? 500, message: exception.message });
+        return await ResponseHelper({ response, success: false, status: exception.status ?? 500, message: exception.message, errorType: exception.errorType ?? null });
     }
 };

@@ -6,6 +6,6 @@ module.exports = async (request, response) => {
         const serviceResponse = await GetOrderService(request);    
         return await ResponseHelper({ response, message: 'Orders listed successfully', data: serviceResponse });
     } catch (exception) {
-        return await ResponseHelper({ response, success: false, status: exception.status ?? 500, message: exception.message });
+        return await ResponseHelper({ response, success: false, status: exception.status ?? 500, message: exception.message, errorType: exception.errorType ?? null });
     }
 };
