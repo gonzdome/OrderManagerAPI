@@ -12,9 +12,9 @@ class App {
   }
 
   routes() {
-    this.server.use('/', CustomerRouter);
-    this.server.use('/', MenuRouter);
-    this.server.use('/', OrderRouter);
+    this.server.use('/customer', CustomerRouter);
+    this.server.use('/menu', MenuRouter);
+    this.server.use('/order', OrderRouter);
   }
 
   middleware() {
