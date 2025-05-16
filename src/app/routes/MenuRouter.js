@@ -5,7 +5,7 @@ const GetMenuController = require('../controllers/menus/GetMenuController');
 
 const router = Router();
 
-router.post('/menu', CreateMenuController);
-router.get('/menu', GetMenuController);
+router.post('/', CreateMenuController);
+router.get('/', GetMenuController);
 
 module.exports = router;
