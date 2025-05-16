@@ -6,6 +6,6 @@ module.exports = async (request, response) => {
         const serviceResponse = await GetMenuService(request);    
         return await ResponseHelper({ response, message: 'Menus listed successfully', data: serviceResponse });
     } catch (exception) {
-        return await ResponseHelper({ response, success: false, message: exception.message, ...exception });
+        return await ResponseHelper({ response, success: false, status: exception.status ?? 500, message: exception.message });
     }
 };
