@@ -6,4 +6,9 @@ const createOrderItems = async ({ order_id, items }) => {
     return createdOrderItems.map(i => ({ id: i.id, order_id, menu_item_id: i.menu_item_id, quantity: i.quantity }));
 }
 
-module.exports = { createOrderItems };
+const getOrderItemsByOrderId = async (id) => {
+    const orders = await OrderItems.findAll({ where: { order_id: id }})
+    return orders;
+}
+
+module.exports = { createOrderItems, getOrderItemsByOrderId };
