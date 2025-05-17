@@ -6,6 +6,6 @@ const UpdateOrderStatusController = require('../controllers/orders/UpdateOrderSt
 const router = Router();
 
 router.post('/', CreateOrderController);
-router.patch('/modify/:order_id', UpdateOrderStatusController);
+router.patch('/:order_id', UpdateOrderStatusController);
 
 module.exports = router;
