@@ -25,11 +25,9 @@ const getMenuList = async ({ page, limit, category }) => {
             id: r.id,
             name: r.name,
             description: r.description,
-            price: r.price,
-            priceConverted: (r.price / 100),
+            price: r.price.toString(),
+            priceConverted: (r.price / 100).toFixed(2),
             category: r.category,
-            createdAt: r.createdAt,
-            updatedAt: r.updatedAt,
         }))
     };
 }

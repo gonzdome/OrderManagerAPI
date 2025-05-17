@@ -34,22 +34,23 @@ const getCustomerOrdersByCustomerId = async ({ page, limit, customer_id = null }
     };
     
     const findCustomerOrdersById = await sequelize.query(query, options);
-    const totalValue = findCustomerOrdersById.map(cO => cO.dataValues.menuprice).reduce((partialSum, a) => partialSum + a, 0);
+    const totalValue = findCustomerOrdersById.map(cO => (cO.dataValues.menuprice * cO.dataValues.quantity)).reduce((partialSum, a) => partialSum + a, 0);
+    
     const mappedRows = findCustomerOrdersById.map(cO => ({
         orderId: cO.dataValues.orderid,
         orderStatus: cO.dataValues.orderstatus,
         menuOrderedDish: cO.dataValues.menuordereddish,
         quantity: cO.dataValues.quantity,
-        menuIndividualItemPrice: (cO.dataValues.menuprice/ 100),
-        totalValue: ((cO.dataValues.menuprice * cO.dataValues.quantity) / 100),
+        menuIndividualItemPrice: ((cO.dataValues.menuprice) / 100).toFixed(2),
+        totalValue: ((cO.dataValues.menuprice * cO.dataValues.quantity) / 100).toFixed(2),
     }));
 
     return {
         count: findCustomerOrdersById.length,
         page: handlePage(page),
         limit: limit,
-        totalValue: totalValue,
-        totalValueConverted: (totalValue / 100),
+        totalValue: totalValue.toString(),
+        totalValueConverted: (totalValue / 100).toFixed(2),
         rows: paginateItems(page, limit, mappedRows)
     };
 }
