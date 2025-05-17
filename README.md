@@ -43,7 +43,8 @@ test: "jest --forceExit"
 ```
 ---
 # Methods
-### <ins>Customer Registration</ins>: http://localhost:3000/customer
+### <ins>Customer Registration</ins>: 
+#### url: http://localhost:3000/customer
 - body:
 ```
 {
@@ -53,7 +54,8 @@ test: "jest --forceExit"
 }
 ```
 
-### <ins>Adding Dishes to the Menu</ins>: http://localhost:3000/menu
+### <ins>Adding Dishes to the Menu</ins>: 
+#### url: http://localhost:3000/menu
 - body:
 ```
 {
@@ -64,9 +66,11 @@ test: "jest --forceExit"
 }
 ```
 
-### <ins>List the Menu</ins>: http://localhost:3000/menu?page=0&limit=3 (add this to search cathegory too: &category=dessert)
+### <ins>List the Menu</ins>: 
+#### url: http://localhost:3000/menu?page=0&limit=3 (to search cathegory add: &category=dessert)
 
-### <ins>Create an Order</ins>: http://localhost:3000/order
+### <ins>Create an Order</ins>: 
+#### url: http://localhost:3000/order
 - body:
 ```
 {
@@ -84,9 +88,11 @@ test: "jest --forceExit"
 }
 ```
 
-### <ins>List Orders by Customer with pagination</ins>: http://localhost:3000/order?page=0&limit=10
+### <ins>List Orders by Customer with pagination</ins>: 
+#### url: http://localhost:3000/order?page=0&limit=10
 
-### <ins>Update Order Status</ins>: http://localhost:3000/order/1
+### <ins>Update Order Status</ins>: 
+#### url: http://localhost:3000/order/1
 - body:
 ```
 {
@@ -94,7 +100,8 @@ test: "jest --forceExit"
 }
 ```
 
-### <ins>Modify an Order</ins>: http://localhost:3000/order/modify/1
+### <ins>Modify an Order</ins>: 
+#### url: http://localhost:3000/order/modify/1
 - body:
 ```
 {
