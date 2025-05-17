@@ -44,6 +44,11 @@ run-seeds: "npx sequelize-cli db:seed:all",
 undo-all-seeds: "npx sequelize-cli db:seed:undo:all",
 test: "jest --forceExit --detectOpenHandles"
 ```
+
+---
+> ### Run to create and populate db: run-migrations and run-seeds
+> ### Run to execute tests: run-migrations and run-seeds to create and populate db
+
 ---
 # Methods
 - ### <ins>Customer Registration</ins>: 
