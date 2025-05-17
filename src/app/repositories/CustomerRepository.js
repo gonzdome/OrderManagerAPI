@@ -20,6 +20,7 @@ const getCustomerById = async ({ id }) => {
 const getCustomerOrdersByCustomerId = async ({ page, limit, customer_id = null }) => {
     const query = `SELECT O.ID AS ORDERID,
                           O.STATUS AS ORDERSTATUS,
+                          OI.QUANTITY AS QUANTITY,
                           M.NAME AS MENUORDEREDDISH,
                           M.PRICE AS MENUPRICE
                      FROM public."OrderItems" OI
@@ -38,8 +39,9 @@ const getCustomerOrdersByCustomerId = async ({ page, limit, customer_id = null }
         orderId: cO.dataValues.orderid,
         orderStatus: cO.dataValues.orderstatus,
         menuOrderedDish: cO.dataValues.menuordereddish,
-        menuPrice: cO.dataValues.menuprice,
-        menuPriceConverted: (cO.dataValues.menuprice / 100),
+        quantity: cO.dataValues.quantity,
+        menuIndividualItemPrice: (cO.dataValues.menuprice/ 100),
+        totalValue: ((cO.dataValues.menuprice * cO.dataValues.quantity) / 100),
     }));
 
     return {
