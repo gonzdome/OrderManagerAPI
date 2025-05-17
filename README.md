@@ -39,7 +39,10 @@ npm i --save-dev sequelize-mock
 run: "nodemon --inspect src/server.js",
 run-migrations: "npx sequelize-cli db:migrate",
 undo-migrations: "npx sequelize-cli db:migrate:undo",
-test: "jest --forceExit"
+undo-all-migrations: "npx sequelize-cli db:migrate:undo:all",
+run-seeds: "npx sequelize-cli db:seed:all",
+undo-all-seeds: "npx sequelize-cli db:seed:undo:all",
+test: "jest --forceExit --detectOpenHandles"
 ```
 ---
 # Methods
