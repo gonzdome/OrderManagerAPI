@@ -15,9 +15,13 @@
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
-    "debug": "nodemon --inspect src/server.js",
+    "run": "nodemon --inspect src/server.js",
     "run-migrations": "npx sequelize-cli db:migrate",
-    "undo-migrations": "npx sequelize-cli db:migrate:undo"
+    "undo-migrations": "npx sequelize-cli db:migrate:undo",
+    "undo-all-migrations": "npx sequelize-cli db:migrate:undo:all",
+    "run-seeds": "npx sequelize-cli db:seed:all",
+    "undo-all-seeds": "npx sequelize-cli db:seed:undo:all",
+    "test": "jest --forceExit --detectOpenHandles"
   },
   "dependencies": {
     "dotenv": "^16.5.0",
@@ -27,7 +31,9 @@
     "sequelize": "^6.37.7"
   },
   "devDependencies": {
+    "jest": "^29.7.0",
     "nodemon": "^3.1.10",
-    "sequelize-cli": "^6.6.3"
+    "sequelize-cli": "^6.6.3",
+    "sequelize-mock": "^0.10.2"
   }
 }
