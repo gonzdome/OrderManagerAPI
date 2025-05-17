@@ -8,7 +8,7 @@ module.exports = {
         {
           name: "Menu_Test",
           description: "Test description",
-          price: 2222,
+          price: 1625,
           category: "main_course",
           createdAt: new Date(),
           updatedAt: new Date()
@@ -16,7 +16,7 @@ module.exports = {
         {
           name: "Menu_Test2",
           description: "Test description",
-          price: 2222,
+          price: 1525,
           category: "main_course",
           createdAt: new Date(),
           updatedAt: new Date()
@@ -24,7 +24,7 @@ module.exports = {
         {
           name: "Menu_Test3",
           description: "Test description",
-          price: 2222,
+          price: 1890,
           category: "main_course",
           createdAt: new Date(),
           updatedAt: new Date()
