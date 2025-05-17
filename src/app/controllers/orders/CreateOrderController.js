@@ -22,6 +22,6 @@ module.exports = async (request, response) => {
 
         return await ResponseHelper({ response, message: created('Order and Order Items'), data: { order, orderItems } });
     } catch (exception) {
-        return await ResponseHelper({ response, success: false, status: exception.status ?? 500, message: exception.message, errorType: exception.errorType ?? null });
+        return await ResponseHelper({ response, success: false, status: exception.status ?? 500, message: exception.message, errorType: exception.errorType ?? null, data: exception.data });
     }
 };
